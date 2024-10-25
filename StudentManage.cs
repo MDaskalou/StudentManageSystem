@@ -23,13 +23,13 @@ namespace StudentManageSystem
             Console.WriteLine($"Studenten {student.Name} har lagts till"); //Skriver ut meddelande om studenten är tillagd
         }
 
-        public void RemoveStudent(int studentid, string name) //Metod för att ta bort studentobjekt från listan students
+        public void RemoveStudent(int studentid) //Metod för att ta bort studentobjekt från listan students
         {
             var studentToRemove = students.FirstOrDefault(s => s.Studentid == studentid); //Hittar studentobjektet som ska tas bort
             if (studentToRemove != null)
             {
                 students.Remove(studentToRemove); //Tar bort studentobjekt från listan students
-                Console.WriteLine($"Studenten {name} med ID: {studentid} har tagits bort"); //Skriver ut meddelande om studenten är borttagen
+                Console.WriteLine($"Studenten {studentToRemove.Name} med ID: {studentid} har tagits bort"); //Skriver ut meddelande om studenten är borttagen
             }
             else
             {
