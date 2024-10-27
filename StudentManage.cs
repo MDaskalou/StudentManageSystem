@@ -1,42 +1,51 @@
-﻿using System;
+﻿//todo: remove all comments
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//todo: remove all comments
 namespace StudentManageSystem 
 {
+    //todo: class name does not match file name
     public class StudentManager //Skapar en klass för att hantera studentobjekt 
     {
+        //todo: capital case on students and initiation of list is unecessary, remove.
         private List<Student> students = new List<Student>(); //Skapar en lista för att lagra studentobjekt
 
         public StudentManager() //Konstruktor för klassen StudentManager
         {
+            //todo: could just be: students = []
             students = new List<Student>(); //Initierar listan students
         }
 
         public void AddStudent(Student student) //Metod för att lägga till studentobjekt i listan students
         {
             students.Add(student); //Lägger till studentobjekt i listan students
-
+//todo: remove new lines
 
             Console.WriteLine($"Studenten {student.Name} har lagts till"); //Skriver ut meddelande om studenten är tillagd
         }
 
+        //todo: snake case on studentid --> studentId
         public void RemoveStudent(int studentid, string name) //Metod för att ta bort studentobjekt från listan students
         {
             var studentToRemove = students.FirstOrDefault(s => s.Studentid == studentid); //Hittar studentobjektet som ska tas bort
             if (studentToRemove != null)
             {
                 students.Remove(studentToRemove); //Tar bort studentobjekt från listan students
+                //todo: felstavning studenten --> student 
                 Console.WriteLine($"Studenten {name} med ID: {studentid} har tagits bort"); //Skriver ut meddelande om studenten är borttagen
             }
             else
             {
+                //todo: felstavning studenten --> student 
                 Console.WriteLine("Studenten finns inte"); //Skriver ut meddelande om studenten inte finns
             }
         }
-
+        
+        //todo: snake case on studentid --> studentId
         public bool StudentExist(int studentid) //Metod för att kontrollera om studenten finns
         {
             if (students.Count == 0) //Kontrollerar om studenten finns
@@ -53,7 +62,6 @@ namespace StudentManageSystem
                 Console.WriteLine("Studenten finns inte"); //Skriver ut meddelande om studenten inte finns
                 return false; //Returnerar false om studenten inte finns
             }
-
         }
         public void ShowAllStudentsMajorsAndGrades() //Metod för att visa alla studenter
         {
@@ -65,17 +73,20 @@ namespace StudentManageSystem
                 {
                     Console.WriteLine("Ämne och Betyg ");
 
+                    //todo: use var instead of type int
                     for (int i = 0; i < student.Majors.Count; i++) //Loopar igenom listan Majors
                     {
                         Console.WriteLine($"Ämne: {student.Majors[i]}, Betyg: {student.Grades[i]}"); //Skriver ut studentens betyg
                     }
-                    
+                    //todo: remove space
 
                 }
                 else
                 {
+                    //todo: felstavning registrerat
                     Console.WriteLine("Inget ämne eller betyg har regristrerat"); //Skriver ut meddelande om studenten inte har betyg
                 }
+                //todo: remove all space
                
                 Console.WriteLine("-------------------------------------------------");
 
